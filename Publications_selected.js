@@ -70,7 +70,7 @@ const PUBLICATIONS = [
     authors: "Chenyu Tang, Wentian Yi, Edoardo Occhipinti, Yanning Dai, Shuo Gao, Luigi G Occhipinti",
     image: "figures/pub_digitaltwin_roadmap.png",
     links: [
-        { label: "Paper", url: "#" },
+        { label: "Paper", url: "https://www.nature.com/articles/s44287-024-00025-w" },
     ]
     },
   {
