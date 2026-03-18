@@ -1,0 +1,571 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Yanning Dai</title>
+  <meta name="author"      content="Yanning Dai">
+  <meta name="viewport"    content="width=device-width, initial-scale=1">
+  <meta name="robots"      content="index, follow">
+  <meta name="description" content="Yanning Dai is a PhD student at KAUST working on reinforcement learning, robotic learning, and AI-driven morphology-control co-design.">
+  <meta name="keywords"    content="Yanning Dai, Reinforcement Learning, Robot Learning, Morphology Control Co-design, Stackelberg RL, KAUST, LLM Reasoning">
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="Yanning Dai - RL & Robot Learning">
+  <meta property="og:description" content="PhD student at KAUST working on reinforcement learning, robotic learning, and AI-driven robot design.">
+  <meta property="og:image"       content="https://yanningdai.github.io/figures/me.png">
+  <meta property="og:url"         content="https://yanningdai.github.io/">
+  <meta property="og:type"        content="profile">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary">
+  <meta name="twitter:title"       content="Yanning Dai - RL & Robot Learning">
+  <meta name="twitter:description" content="PhD student at KAUST working on reinforcement learning, robotic learning, and AI-driven robot design.">
+  <meta name="twitter:image"       content="https://yanningdai.github.io/figures/me.png">
+
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="shared-styles.css">
+  <link rel="icon" type="image/png" href="figures/me.png">
+
+  <!-- Preload -->
+  <link rel="preload" href="figures/me.png" as="image">
+  <link rel="preload" href="https://fonts.gstatic.com/s/lato/v15/S6uyw4BMUTPHjx4wXiWtFCc.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- DNS prefetch -->
+  <link rel="dns-prefetch" href="//clustrmaps.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Yanning Dai",
+    "description": "PhD student at KAUST working on reinforcement learning, robotic learning, and AI-driven robot design.",
+    "url": "https://yanningdai.github.io/",
+    "image": "https://yanningdai.github.io/figures/me.png",
+    "email": "yanning.dai@kaust.edu.sa",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "King Abdullah University of Science and Technology",
+      "url": "https://www.kaust.edu.sa/"
+    },
+    "sameAs": [
+      "https://github.com/yourusername",
+      "https://www.linkedin.com/in/yourprofile",
+      "https://scholar.google.com/citations?user=YOURID"
+    ]
+  }
+  </script>
+
+  <style>
+    /* Scroll progress bar */
+    #scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px; width: 0%;
+      z-index: 9999;
+      background: linear-gradient(90deg, #6C63FF, #185FA5, #1D9E75);
+      transition: width 0.1s linear;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* Layout */
+    body                               { font-display: swap; line-height: 1.7; }
+    .section-spacing                   { margin-bottom: 1px !important; margin-left: -20px !important; }
+    .section-spacing td,
+    .section-spacing table td          { padding: 10px 20px !important; }
+    #main-content .section-spacing td  { padding-right: 0 !important; }
+    .footer-section                    { margin-top: 1px !important; padding-top: 10px !important; }
+
+  .nav-buttons {padding-bottom: 8px !important;}
+  .nav-button {color: hsl(225, 3%, 49%) !important;}
+  .nav-button:hover {color: #555 !important;}
+
+    /* Profile photo */
+    .profile-photo                     { border: 2px solid #f5f5f5; transition: border-color 0.3s ease; }
+    .profile-photo:hover               { border-color: #e0e0e0; }
+
+    /* Bio */
+    .bio            { font-family: 'DM Sans', sans-serif; max-width: 680px; font-size: 15px; line-height: 1.8; color: #555; }
+    .bio p          { margin: 0 0 1rem; }
+    .bio a          { color: #185FA5; text-decoration: none; border-bottom: 1px solid #B5D4F4; transition: border-color 0.2s; }
+    .bio a:hover    { border-color: #185FA5; }
+    .cta            { background: #E1F5EE; border-radius: 10px; padding: 0.7rem 1rem; color: #0F6E56; font-size: 14px; display: flex; align-items: center; gap: 10px; margin-bottom: 1.2rem; }
+    .dot            { width: 7px; height: 7px; border-radius: 50%; background: #1D9E75; flex-shrink: 0; }
+    .links          { text-align: center; font-size: 14px; color: #888; }
+    .links a        { color: #555; text-decoration: none; border-bottom: 1px solid #ddd; padding: 0 2px; margin: 0 4px; }
+    .links a:hover  { color: #185FA5; border-color: #B5D4F4; }
+
+    /* Publication cards */
+    #pub-list, #pub-list li     { list-style: none !important; padding-left: 0 !important; margin-left: 0 !important; }
+    #pub-list li::before,
+    #pub-list li::marker        { display: none !important; content: none !important; }
+    .pc                         { display: flex; gap: 22px; align-items: flex-start; padding: 26px 0; border-top: 1px solid #ececec; }
+    .pc:first-child             { border-top: none; padding-top: 0; }
+    .pt                         { width: 320px; min-width: 320px; height: 180px; border-radius: 7px; overflow: hidden; border: 1px solid #e4e4e4; background: #f5f5f5; flex-shrink: 0; }
+    .pt img                     { width: 100%; height: 100%; object-fit: cover; }
+    .pb                         { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+    .vr                         { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+    .vt                         { font-size: 14px; font-weight: 700; letter-spacing: .04em; padding: 2px 9px; border-radius: 4px; background: #EEEDFE; color: #534AB7; }
+    .vy                         { font-size: 14px; color: #999; }
+    .vd                         { font-size: 14px; color: #ccc; }
+    .bg                         { font-size: 14px; font-weight: 500; color: #e65100; }
+    .ti                         { font-size: 16px; font-weight: 600; color: #1a1a1a; margin: 0; line-height: 1.5; }
+    .au                         { font-size: 14.5px; color: #666; margin: 0; line-height: 1.55; }
+    .au strong                  { color: #c0392b; font-weight: 700; font-size: inherit; }
+    .lk                         { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 2px; }
+    .lk a                       { font-size: 13px; color: #1772d0; text-decoration: none; border-bottom: 1px solid transparent; }
+    .lk a:hover                 { border-bottom-color: #1772d0; }
+    .lk span                    { font-size: 13px; color: #ddd; }
+  </style>
+
+  <script>
+    // Scroll progress bar
+    window.addEventListener('scroll', function () {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const bar = document.getElementById('scroll-progress');
+      if (bar) bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+    });
+
+    // Align nav bar with main-content-wrapper
+    function alignNav() {
+      const wrapper = document.querySelector('.main-content-wrapper');
+      const nav     = document.querySelector('.nav-buttons');
+      if (!wrapper || !nav) return;
+      const rect = wrapper.getBoundingClientRect();
+      nav.style.width      = rect.width + 'px';
+      nav.style.marginLeft = (rect.left + window.scrollX) + 'px';
+    }
+    document.addEventListener('DOMContentLoaded', alignNav);
+    window.addEventListener('resize', alignNav);
+
+    // Smooth scroll for anchor links
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 60, behavior: 'smooth' });
+          }
+        });
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div id="scroll-progress"></div>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation -->
+  <nav class="nav-buttons" role="navigation" aria-label="Main navigation">
+    <a href="index.html"             class="nav-button" aria-current="page">Home</a>
+    <a href="#news"                  class="nav-button">News</a>
+    <a href="#selected-publications" class="nav-button">Publications</a>
+    <a href="#education"             class="nav-button">Education</a>
+    <a href="#research-experience"           class="nav-button">Experience</a>
+    <a href="#honors-and-awards"     class="nav-button">Honors &amp; Awards</a>
+    <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </nav>
+
+  <div id="mobile-sidebar-overlay" class="mobile-sidebar-overlay"></div>
+
+  <!-- Main Content -->
+  <main id="main-content" role="main">
+    <div class="main-content-wrapper">
+      <table style="width:100%; background:var(--bg-color); border:0; border-spacing:0; border-collapse:separate;">
+        <tbody>
+          <tr>
+            <td style="padding:0;">
+
+              <!-- Hero -->
+              <div style="margin-bottom:5px; overflow:hidden;">
+                <img class="profile-photo"
+                     src="figures/me.png"
+                     alt="Profile photo of Yanning Dai"
+                     style="float:right; width:200px; height:200px; border-radius:50%; margin-left:5px; margin-top:160px;"
+                     loading="eager" width="200" height="200">
+
+                <p style="text-align:center;">
+                  <name style="font-size:36px; font-weight:700;">Yanning Dai</name>
+                  <br>
+                  <span style="font-size:15px; color:#797878;">PhD Student @ KAUST &nbsp;|&nbsp; Email = yanning.dai [at] kaust.edu.sa</span>
+                </p>
+
+                <div class="bio">
+                  <p>
+                    Hi! I am a second-year PhD student working with Prof.
+                    <a href="https://people.idsia.ch/~juergen/">Jürgen Schmidhuber</a>
+                    at <a href="https://www.kaust.edu.sa">KAUST</a> Center of Excellence for Generative AI.
+                    Previously, I received my M.S. and B.E. degrees in Electrical Engineering from
+                    <a href="https://www.buaa.edu.cn/">Beihang University</a>, advised by Prof.
+                    <a href="https://scholar.google.com/citations?user=mb_QQ2UAAAAJ">Shuo Gao</a> in 2023 and 2020.
+                  </p>
+                  <p>
+                    <b>Research:</b> My research interests span Reinforcement Learning, Robot Learning, and LLM Reasoning.
+                    I study how structured interactions between components or agents can enable more efficient, stable,
+                    and generalizable intelligence, ranging from algorithmic foundations to embodied systems.
+                  </p>
+                  <div class="cta">
+                    <div class="dot"></div>
+                    <span>Actively looking for <b>research internship opportunities</b>. Feel free to reach out for collaboration!</span>
+                  </div>
+                  <p class="links">
+                    <a href="https://scholar.google.com/citations?user=YJr1mOgAAAAJ">Google Scholar</a> /
+                    <a href="https://github.com/YanningDai">Github</a> /
+                    <a href="https://www.linkedin.com/in/yanning-d-000882311/">LinkedIn</a> /
+                    <a href="files/CV.pdf">CV</a>
+                  </p>
+                </div>
+              </div>
+
+              <!-- News -->
+              <div class="section-spacing">
+                <table style="width:100%; border:0; border-spacing:0; margin-bottom:15px;border-collapse:separate;">
+                  <tbody>
+                    <tr>
+                      <td style="padding:20px; width:100%; vertical-align:middle;">
+                        <heading id="news">News</heading>
+                        <ul style="list-style:none; padding:0; margin-top:12px;">
+
+                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee; font-size:14px; line-height:1.6;">
+                            <span style="color:#999; min-width:80px; font-size:13px; padding-top:2px;">Jan 2026</span>
+                            <span style="color:#444;">
+                              <span style="background:#EEEDFE; color:#3C3489; font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">ICLR 2026</span>
+                              Our <a href="https://openreview.net/pdf?id=sJ0vOOkclw" style="color:#185FA5; text-decoration:none; border-bottom:1px solid #B5D4F4;">paper</a> on Morphology-Control Co-Design is accepted to ICLR 2026!
+                            </span>
+                          </li>
+
+                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee; font-size:14px; line-height:1.6;">
+                            <span style="color:#999; min-width:80px; font-size:13px; padding-top:2px;">Jun 2025</span>
+                            <span style="color:#444;">
+                              <span style="background:#EEEDFE; color:#3C3489; font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">IROS 2025</span>
+                              Our <a href="https://ieeexplore.ieee.org/document/11246188" style="color:#185FA5; text-decoration:none; border-bottom:1px solid #B5D4F4;">paper</a> on Soft RL Robot Platform is accepted to IROS 2025!
+                            </span>
+                          </li>
+
+                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee; font-size:14px; line-height:1.6;">
+                            <span style="color:#999; min-width:80px; font-size:13px; padding-top:2px;">Sep 2024</span>
+                            <span style="color:#444;">
+                              <span style="background:#E6F1FB; color:#185FA5; font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">IROS 2024</span>
+                              Our <a href="files/poster_iros2024.pdf" style="color:#185FA5; text-decoration:none; border-bottom:1px solid #B5D4F4;">poster</a> (Late-Breaking Results) on Soft Starfish Robot is accepted to IROS 2024!
+                            </span>
+                          </li>
+
+                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee; font-size:14px; line-height:1.6;">
+                            <span style="color:#999; min-width:80px; font-size:13px; padding-top:2px;">Jun 2024</span>
+                            <span style="color:#444;">
+                              <span style="background:#E1F5EE; color:#0F6E56; font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">PhD</span>
+                              Start my PhD journey at KAUST with Prof. Jürgen Schmidhuber.
+                            </span>
+                          </li>
+
+                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee; font-size:14px; line-height:1.6;">
+                            <span style="color:#999; min-width:80px; font-size:13px; padding-top:2px;">Apr 2024</span>
+                            <span style="color:#444;">
+                              <span style="background:#FAEEDA; color:#854F0B; font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">Award</span>
+                              Selected as Rising Stars in AI by KAUST AI Initiative!
+                            </span>
+                          </li>
+
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Selected Publications -->
+              <script src="Publications_selected.js"></script>
+              <div class="section-spacing">
+                <table style="width:100%; border:0; border-spacing:0; border-collapse:separate;">
+                  <tbody>
+                    <tr>
+                      <td style="padding:20px; width:100%; vertical-align:middle;">
+                        <heading id="selected-publications">Selected Publications</heading>
+                        <ul id="pub-list" style="list-style:none; padding:0; margin:20px 0 0;"></ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <script>
+                const BADGE_LABELS = {
+                  "cover":      "★ Cover Article",
+                  "book":       "★ Book",
+                  "oral":       "★ Oral",
+                  "spotlight":  "★ Spotlight",
+                  "best-paper": "★ Best Paper"
+                };
+
+                function renderCard(p) {
+                  const badge   = p.badge && BADGE_LABELS[p.badge] ? `<span class="bg">${BADGE_LABELS[p.badge]}</span>` : "";
+                  const thumb   = p.image ? `<img src="${p.image}" alt="" onerror="this.parentElement.style.background='#f0f0f0'">` : "";
+                  const authors = p.authors.split(", ").map(a => {
+                    const c = a.replace(/\*/g, ""), s = a.includes("*") ? "*" : "";
+                    return c === HIGHLIGHT_AUTHOR ? `<strong>${c}${s}</strong>` : a;
+                  }).join(", ");
+                  const links = p.links.filter(l => l.url).map((l, i, a) =>
+                    `<a href="${l.url}" target="_blank" rel="noopener">[${l.label}]</a>` + (i < a.length - 1 ? `<span> / </span>` : "")
+                  ).join("");
+                  return `<li><div class="pc">
+                    <div class="pt">${thumb}</div>
+                    <div class="pb">
+                      <div class="vr"><span class="vt">${p.venue}</span><span class="vd">·</span><span class="vy">${p.year}</span>${badge}</div>
+                      <p class="ti">${p.title}</p>
+                      <p class="au">${authors}</p>
+                      <div class="lk">${links}</div>
+                    </div>
+                  </div></li>`;
+                }
+
+                document.addEventListener("DOMContentLoaded", () => {
+                  const el = document.getElementById("pub-list");
+                  if (!el) return;
+                  el.innerHTML = typeof PUBLICATIONS === "undefined"
+                    ? `<li style="color:#c00; font-size:13px">Error: publications.js not loaded.</li>`
+                    : PUBLICATIONS.map(renderCard).join("");
+                });
+              </script>
+
+              <!-- Education -->
+              <div class="section-spacing">
+                <table style="width:100%; border:0; border-spacing:0; border-collapse:separate;">
+                  <tr>
+                    <td style="padding:0; vertical-align:middle; width:100%;">
+                      <heading id="education">Education</heading>
+
+                      <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin-top:10px;">
+                        <tr>
+                          <td style="padding:4px 14px 4px 0; vertical-align:top; width:44px;">
+                            <img src="figures/KAUSTlogo.png" alt="KAUST" style="width:48px; height:auto;">
+                          </td>
+                          <td style="padding:4px 0; vertical-align:top;">
+                            <span style="font-size:16px;">Ph.D. in Computer Science @ <b>KAUST</b></span><br>
+                            <span style="font-size:16px; color:#666;">Thuwal, Saudi Arabia</span>
+                          </td>
+                          <td style="padding:4px 0; vertical-align:top; text-align:right; white-space:nowrap;">
+                            <span style="font-size:16px;">Jun. 2024 – Present</span><br>
+                            <span style="font-size:16px;">Advisor: <a href="https://people.idsia.ch/~juergen/" style="color:#4a90d9;">Prof. Jürgen Schmidhuber</a></span>
+                          </td>
+                        </tr>
+                      </table>
+
+                      <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin-top:10px;">
+                        <tr>
+                          <td style="padding:4px 14px 4px 0; vertical-align:top; width:44px;">
+                            <img src="figures/Beihanglogo.png" alt="Beihang" style="width:48px; height:auto; margin-top:2px;">
+                          </td>
+                          <td style="padding:4px 0; vertical-align:top;">
+                            <span style="font-size:16px;">M.S. in Electrical Engineering @ <b>Beihang University</b></span><br>
+                            <span style="font-size:16px; color:#666;">Beijing, China &nbsp;·&nbsp; GPA: 3.8/4.0</span>
+                          </td>
+                          <td style="padding:4px 0; vertical-align:top; text-align:right; white-space:nowrap;">
+                            <span style="font-size:16px;">Sep. 2020 – Jul. 2023</span><br>
+                            <span style="font-size:16px;">Advisor: <a href="#" style="color:#4a90d9;">Prof. Shuo Gao</a></span>
+                          </td>
+                        </tr>
+                      </table>
+
+                      <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin-top:10px;">
+                        <tr>
+                          <td style="padding:4px 14px 4px 0; vertical-align:top; width:44px;">
+                            <img src="figures/Beihanglogo.png" alt="Beihang" style="width:48px; height:auto; margin-top:2px;">
+                          </td>
+                          <td style="padding:4px 0; vertical-align:top;">
+                            <span style="font-size:16px;">B.E. in Electrical Engineering @ <b>Beihang University</b></span><br>
+                            <span style="font-size:16px; color:#666;">Beijing, China &nbsp;·&nbsp; GPA: 3.8/4.0</span>
+                          </td>
+                          <td style="padding:4px 0; vertical-align:top; text-align:right; white-space:nowrap;">
+                            <span style="font-size:16px;">Sep. 2016 – Jul. 2020</span>
+                          </td>
+                        </tr>
+                      </table>
+
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <!-- Research Experience -->
+              <div class="section-spacing">
+                <table style="width:100%; border:0; border-spacing:0; border-collapse:separate;">
+                  <tr>
+                    <td style="padding:0; vertical-align:middle; width:100%;">
+                      <heading id="research-experience">Research Experience</heading>
+                      <ul style="list-style:disc; padding-left:20px; margin-top:12px; font-size:16px; line-height:1.8;">
+
+                        <li style="padding:6px 140px 6px 0; position:relative;">
+                          <div>
+                            <div style="font-weight:600;">Tsinghua University</div>
+                            <div>Research Intern, Beijing Tsinghua Changgung Hospital</div>
+                            <div style="color:#666; font-size:15px;">Built data-driven world models for patient-specific recovery dynamics on large-scale clinical datasets.</div>
+                          </div>
+                          <i style="position:absolute; right:0; top:0; color:#999; white-space:nowrap; background:#fff; padding-left:8px;">Jan 2024 – May 2024</i>
+                        </li>
+
+                        <li style="padding:6px 140px 6px 0; position:relative;">
+                          <div>
+                            <div style="font-weight:600;">Beihang University</div>
+                            <div>Research Assistant, Advanced Sensing and Intelligent Systems Lab</div>
+                            <div style="color:#666; font-size:15px;">Developed reinforcement learning and generative models for personalized digital human systems and behavior generation in stroke rehabilitation.</div>
+                          </div>
+                          <i style="position:absolute; right:0; top:0; color:#999; white-space:nowrap;">Jun 2023 – Jan 2024</i>
+                        </li>
+
+                        <li style="padding:6px 140px 6px 0; position:relative;">
+                          <div>
+                            <div style="font-weight:600;">National Engineering Research Center for Ophthalmic Diagnosis</div>
+                            <div>Research Intern</div>
+                            <div style="color:#666; font-size:15px;">Modeled patient-specific temporal dynamics of myopia progression from longitudinal ophthalmic data.</div>
+                          </div>
+                          <i style="position:absolute; right:0; top:0; color:#999; white-space:nowrap; background:#fff; padding-left:8px;">Jun 2022 – Jun 2023</i>
+                        </li>
+
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <!-- Honors and Awards -->
+              <div class="section-spacing">
+                <table style="width:100%; border:0; border-spacing:0; border-collapse:separate;">
+                  <tr>
+                    <td style="padding:0; vertical-align:middle; width:100%;">
+                      <heading id="honors-and-awards">Selected Honors and Awards</heading>
+                      <ul style="list-style:disc; padding-left:0; margin-top:2px; font-size:16px; line-height:1.6;">
+
+                        <li style="padding:2px 0;">
+                          <div style="display:flex; align-items:baseline;">
+                            <span style="flex:1; min-width:0;">Rising Stars in AI, KAUST AI Initiative (<span style="color:#c0392b; font-weight:600;">30 Awardees Worldwide</span>)</span>
+                            <i style="color:#999; white-space:nowrap; margin-left:16px;">Apr 2024</i>
+                          </div>
+                        </li>
+
+                        <li style="padding:2px 0;">
+                          <div style="display:flex; align-items:baseline;">
+                            <span style="flex:1; min-width:0;">Outstanding Graduates in Beijing, Beijing Municipal Education Commission (<span style="color:#c0392b; font-weight:600;">Top 2%</span>)</span>
+                            <i style="color:#999; white-space:nowrap; margin-left:16px;">Jun 2023</i>
+                          </div>
+                        </li>
+
+                        <li style="padding:2px 0;">
+                          <div style="display:flex; align-items:baseline;">
+                            <span style="flex:1; min-width:0;">National Scholarship, Ministry of Education of China (<span style="color:#c0392b; font-weight:600;">Top 1%</span>)</span>
+                            <i style="color:#999; white-space:nowrap; margin-left:16px;">Dec 2022</i>
+                          </div>
+                        </li>
+
+                        <li style="padding:2px 0;">
+                          <div style="display:flex; align-items:baseline;">
+                            <span style="flex:1; min-width:0;">3rd Class Award of Science and Technology, China Instrument and Meter Society (<span style="color:#c0392b; font-weight:600;">National S&amp;T Award</span>)</span>
+                            <i style="color:#999; white-space:nowrap; margin-left:16px;">Oct 2022</i>
+                          </div>
+                        </li>
+
+                        <li style="padding:2px 0;">
+                          <div style="display:flex; align-items:baseline;">
+                            <span style="flex:1; min-width:0;">China Instrument and Control Society Scholarship, 1st Class Award (Top Society Award, <span style="color:#c0392b; font-weight:600;">Top 1%</span>)</span>
+                            <i style="color:#999; white-space:nowrap; margin-left:16px;">Nov 2019</i>
+                          </div>
+                        </li>
+
+                        <li style="padding:2px 0;">
+                          <div style="display:flex; align-items:baseline;">
+                            <span style="flex:1; min-width:0;">29th Fengru Cup Science and Technology Contest, 1st Class Award, Beihang University (<span style="color:#c0392b; font-weight:600;">Top 1%</span>)</span>
+                            <i style="color:#999; white-space:nowrap; margin-left:16px;">Jun 2019</i>
+                          </div>
+                        </li>
+
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <!-- Teaching -->
+              <div class="section-spacing">
+                <table style="width:100%; border:0; border-spacing:0; border-collapse:separate;">
+                  <tr>
+                    <td style="padding:0; vertical-align:middle; width:100%;">
+                      <heading id="teaching">Teaching</heading>
+                      <ul style="list-style:disc; padding-left:0; margin-top:12px; font-size:16px; line-height:1.6;">
+                        <li style="padding:2px 0;">
+                          <div style="display:flex; align-items:baseline;">
+                            <span style="flex:1; min-width:0;">Teaching Assistant, IntelliSense and Autonomous Systems, Beihang University</span>
+                            <i style="color:#999; white-space:nowrap; margin-left:16px;">Spring 2023</i>
+                          </div>
+                        </li>
+                        <li style="padding:2px 0;">
+                          <div style="display:flex; align-items:baseline;">
+                            <span style="flex:1; min-width:0;">Teaching Assistant, Introduction to Smart Sensing Systems, Beihang University</span>
+                            <i style="color:#999; white-space:nowrap; margin-left:16px;">Fall 2022</i>
+                          </div>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <!-- Academic Services -->
+              <div class="section-spacing">
+                <table style="width:100%; border:0; border-spacing:0; border-collapse:separate;">
+                  <tr>
+                    <td style="padding:0; vertical-align:middle; width:100%;">
+                      <heading id="academic-services">Academic Services</heading>
+                      <ul style="list-style:disc; padding-left:0; margin-top:12px; font-size:16px; line-height:1.6;">
+                        <li style="padding:2px 0;">
+                          <div style="display:flex; align-items:baseline;">
+                            <span style="flex:1; min-width:0;">Reviewer: Frontiers in Electronics, IEEE Sensors Journal, IEEE FLEPS Conference</span>
+                            <i style="color:#999; white-space:nowrap; margin-left:16px;">2020 – Present</i>
+                          </div>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Footer -->
+      <div class="footer-section">
+        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate;">
+          <tbody>
+            <tr>
+              <td style="padding:20px; text-align:left; width:33%; vertical-align:middle;">
+                <div id="footer" style="font-size:small;">
+                  <div id="last-modified-time"></div>
+                </div>
+              </td>
+              <td style="padding:20px; text-align:center; width:34%; vertical-align:middle;">
+                <p style="font-size:small; margin:0;">© 2026 Yanning Dai. All rights reserved.</p>
+              </td>
+              <td style="padding:20px; text-align:right; width:33%; vertical-align:middle;">
+                <p style="font-size:small; margin:0;">
+                  Thanks <a style="font-size:small;" href="https://jonbarron.info/">Jon Barron</a> for this amazing work.
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>
