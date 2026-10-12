@@ -3,6 +3,7 @@
 //
 //  Fields per entry:
 //    venue   : string  — journal/conference name shown as colored tag
+//    venueNote: string — optional text shown after the venue tag
 //    year    : string  — publication year
 //    badge   : string | null
 //                "cover"      → orange  "Cover Article"
@@ -17,6 +18,7 @@
 //    abstract: string — 1–2 sentences shown under authors
 //    image   : string — path to teaser image, e.g. "images/pub_foo.png"
 //                       set to "" to show grey placeholder
+//    imageClass: string — optional CSS class for teaser framing
 //    links   : array  — { label: "Paper", url: "https://..." }
 //                       use url: "#" as placeholder; remove entry to hide link
 // ============================================================
@@ -34,6 +36,19 @@ const PUBLICATIONS = [
       { label: "Paper",   url: "https://arxiv.org/pdf/2603.15388" },
       { label: "Project", url: "https://yanningdai.github.io/stackelberg-ppo-co-design/" },
       { label: "Code",    url: "https://github.com/YanningDai/StackelbergPPO" },
+      { label: "Poster",  url: "https://iclr.cc/media/PosterPDFs/ICLR%202026/10007068.png?t=1775569433.1890833" },
+    ]
+  },
+  {
+    venue: "arXiv",
+    year: "2026",
+    badge: null,
+    title: "EvoAlloc: A Self-Evolving Resource Allocation Agent for Efficient Program Evolution",
+    authors: "Yanning Dai, Yuhui Wang, Nanbo Li, Wenyi Wang, Jürgen Schmidhuber",
+    image: "figures/pub_evoalloc.png",
+    imageClass: "evoalloc-preview",
+    links: [
+      { label: "Paper",   url: "https://arxiv.org/pdf/2610.12086" },
     ]
   },
   {
@@ -50,6 +65,20 @@ const PUBLICATIONS = [
     ]
   },
   {
+    venue: "arXiv",
+    year: "2026",
+    badge: null,
+    title: "Predictive Semantic Safety: From Visual Physical Reasoning to Safety-Critical Control",
+    authors: "Taekyung Kim*, Salem Fradi*, Yanning Dai, Mateusz Ostaszewski, Jürgen Schmidhuber",
+    image: "figures/pub_pss.gif",
+    imageClass: "pss-preview",
+    links: [
+      { label: "Paper",   url: "https://arxiv.org/pdf/2609.34356" },
+      { label: "Project", url: "https://www.taekyung.me/pss" },
+      { label: "Code",    url: "https://github.com/AlKeshi/predictive-semantic-safety" },
+    ]
+  },
+  {
     venue: "IROS",
     year: "2025",
     badge: null,
@@ -57,12 +86,26 @@ const PUBLICATIONS = [
     authors: "Mohannad Alhakami*, Dylan R Ashley*, Joel Dunham*, Yanning Dai, Francesco Faccio, Eric Feron, Jürgen Schmidhuber",
     abstract: "We present Baby Robot, a robust low-cost platform designed for safe physical interaction and rapid experimentation, enabling data-efficient reinforcement learning in real-world settings.",
     image: "figures/pub_babyrobot.png",
+    imageClass: "babyrobot-preview",
     links: [
       { label: "Paper",   url: "https://arxiv.org/pdf/2404.08093" },
       { label: "Code",   url: "https://github.com/dylanashley/robot-limb-testai" },
     ]
   },
-    {
+  {
+    venue: "IROS",
+    venueNote: "Late-Breaking Results",
+    year: "2024",
+    badge: null,
+    title: "Towards a Robust Starfish Robot for AI Research",
+    authors: "Mohannad Alhakami, Dylan R. Ashley*, Joel Dunham*, Yanning Dai, Francesco Faccio, Eric Feron, Jürgen Schmidhuber",
+    image: "figures/pub_startfish.png",
+    imageClass: "starfish-preview",
+    links: [
+      { label: "Poster", url: "files/poster_iros2024.pdf" },
+    ]
+  },
+  {
     venue: "Nature Reviews Electrical Engineering",
     year: "2024",
     badge: null,

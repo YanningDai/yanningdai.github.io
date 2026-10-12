@@ -105,9 +105,21 @@
     .pc:first-child             { border-top: none; padding-top: 0; }
     .pt                         { width: 320px; min-width: 320px; height: 180px; border-radius: 7px; overflow: hidden; border: 1px solid #e4e4e4; background: #f5f5f5; flex-shrink: 0; }
     .pt img                     { width: 100%; height: 100%; object-fit: cover; }
+    .pt img.evoalloc-preview    { object-fit: contain; background: #fff; }
+    .pt img.babyrobot-preview,
+    .pt img.starfish-preview    { display: block; box-sizing: border-box; padding: 10px; object-fit: contain; object-position: center; background: #fff; }
+    /* Frame the upper PSS scene: 480 × 270 at (120, 14) in the 600 × 410 GIF. */
+    .pt img.pss-preview         { display: block; width: 125%; max-width: none; height: auto; transform: translate(-20%, -3.414634%); }
+    button.pt                   { display: block; position: relative; box-sizing: content-box; padding: 0; font: inherit; text-align: left; appearance: none; cursor: zoom-in; }
+    button.pt:hover             { border-color: #185FA5; }
+    button.pt:focus-visible     { outline: 3px solid #185FA5; outline-offset: 4px; }
+    .pt-zoom-hint                { position: absolute; right: 8px; bottom: 8px; padding: 3px 8px; border-radius: 4px; background: rgba(22, 34, 50, .8); color: #fff; font: 12px/1.5 'Lato', sans-serif; opacity: 0; pointer-events: none; }
+    button.pt:hover .pt-zoom-hint,
+    button.pt:focus-visible .pt-zoom-hint { opacity: 1; }
     .pb                         { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
     .vr                         { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
     .vt                         { font-size: 14px; font-weight: 700; letter-spacing: .04em; padding: 2px 9px; border-radius: 4px; background: #EEEDFE; color: #534AB7; }
+    .vn                         { font-size: 14px; font-weight: 500; color: #666; }
     .vy                         { font-size: 14px; color: #999; }
     .vd                         { font-size: 14px; color: #ccc; }
     .bg                         { font-size: 14px; font-weight: 500; color: #e65100; }
@@ -118,6 +130,27 @@
     .lk a                       { font-size: 13px; color: #1772d0; text-decoration: none; border-bottom: 1px solid transparent; }
     .lk a:hover                 { border-bottom-color: #1772d0; }
     .lk span                    { font-size: 13px; color: #ddd; }
+
+    /* Full-size publication images; native dialog handles keyboard focus and Escape. */
+    body.image-preview-open     { overflow: hidden; }
+    .image-preview              { width: min(1100px, calc(100vw - 40px)); max-width: none; max-height: calc(100vh - 40px); max-height: calc(100dvh - 40px); box-sizing: border-box; margin: auto; padding: 18px; border: 0; border-radius: 12px; background: #fff; color: #1a1a1a; box-shadow: 0 24px 90px rgba(0, 0, 0, .25); }
+    .image-preview::backdrop     { background: rgba(15, 23, 42, .78); }
+    .image-preview-header        { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin-bottom: 14px; }
+    .image-preview-title         { margin: 0; font: 600 15px/1.5 'Lato', sans-serif; }
+    .image-preview-close         { flex-shrink: 0; min-width: 64px; min-height: 44px; padding: 8px 14px; border: 1px solid #ddd; border-radius: 7px; background: #fff; color: #444; font: 14px 'Lato', sans-serif; cursor: pointer; }
+    .image-preview-close:hover   { background: #f3f5f8; }
+    .image-preview-close:focus-visible { outline: 3px solid #185FA5; outline-offset: 2px; }
+    .image-preview-content       { display: flex; justify-content: center; align-items: center; }
+    .image-preview-content img   { display: block; width: auto; height: auto; max-width: 100%; max-height: calc(100vh - 170px); max-height: calc(100dvh - 170px); object-fit: contain; }
+    @media (max-width: 600px) {
+      .image-preview             { width: calc(100vw - 20px); padding: 12px; }
+      .image-preview-header      { gap: 12px; }
+      .image-preview-title       { font-size: 14px; }
+      .image-preview-content img { max-height: calc(100vh - 220px); max-height: calc(100dvh - 220px); }
+    }
+    @media (hover: none) {
+      .pt-zoom-hint              { opacity: 1; }
+    }
   </style>
 
   <script>
@@ -209,9 +242,10 @@
                     <a href="https://scholar.google.com/citations?user=mb_QQ2UAAAAJ">Shuo Gao</a> in 2023 and 2020.
                   </p>
                   <p>
-                    <b>Research:</b> My research interests span Reinforcement Learning, Robot Learning, and LLM Reasoning.
-                    I study how structured interactions between components or agents can enable more efficient, stable,
-                    and generalizable intelligence, ranging from algorithmic foundations to embodied systems.
+                    <b>Research:</b> My research interests span reinforcement learning, self-improving agents, and embodied AI.
+                    I study how agents can improve their capabilities through experience and feedback, with an emphasis on making this process efficient and reliable.
+                    I am particularly interested in how LLM-based agents refine their reasoning and problem-solving strategies,
+                    and how embodied agents connect reasoning with action to adapt to new tasks and environments.
                   </p>
                   <div class="cta">
                     <div class="dot"></div>
@@ -234,9 +268,16 @@
                       <td style="padding:20px; width:100%; vertical-align:middle;">
                         <heading id="news">News</heading>
                         <ul style="list-style:none; padding:0; margin-top:12px;">
+                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee; font-size:14px; line-height:1.6;">
+                            <span style="color:#999; min-width:80px; font-size:13px; padding-top:2px;">Oct 2026</span>
+                            <span style="color:#444;">
+                              <span style="background:#EEEDFE; color:#3C3489; font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">arXiv</span>
+                              Our preprint on efficient program evolution, <a href="https://arxiv.org/pdf/2610.12086" style="font-size:inherit; color:#185FA5; text-decoration:none; border-bottom:1px solid #B5D4F4;">EvoAlloc</a>, is now available on arXiv!
+                            </span>
+                          </li>
                           
                           <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee; font-size:14px; line-height:1.6;">
-                            <span style="color:#999; min-width:80px; font-size:13px; padding-top:2px;">Jan 2026</span>
+                            <span style="color:#999; min-width:80px; font-size:13px; padding-top:2px;">Aug 2026</span>
                             <span style="color:#444;">
                               <span style="background:#EEEDFE; color:#3C3489; font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">EMNLP 2026</span>
                               Our paper on self-Improving Agents is accepted to EMNLP 2026 Findings!
@@ -314,9 +355,14 @@
                   "best-paper": "★ Best Paper"
                 };
 
-                function renderCard(p) {
+                function renderCard(p, index) {
                   const badge   = p.badge && BADGE_LABELS[p.badge] ? `<span class="bg">${BADGE_LABELS[p.badge]}</span>` : "";
-                  const thumb   = p.image ? `<img src="${p.image}" alt="" onerror="this.parentElement.style.background='#f0f0f0'">` : "";
+                  const venueNote = p.venueNote ? `<span class="vn">${p.venueNote}</span>` : "";
+                  const thumb   = p.image ? `<img src="${p.image}" alt="" class="${p.imageClass || ''}" onerror="this.parentElement.style.background='#f0f0f0'">` : "";
+                  const imageLabel = `View larger image: ${p.title}`.replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
+                  const preview = p.image
+                    ? `<button type="button" class="pt" data-publication-index="${index}" aria-label="${imageLabel}" aria-haspopup="dialog" aria-controls="publication-image-preview">${thumb}<span class="pt-zoom-hint" aria-hidden="true">View larger</span></button>`
+                    : `<div class="pt"></div>`;
                   const authors = p.authors.split(", ").map(a => {
                     const c = a.replace(/\*/g, ""), s = a.includes("*") ? "*" : "";
                     return c === HIGHLIGHT_AUTHOR ? `<strong>${c}${s}</strong>` : a;
@@ -325,9 +371,9 @@
                     `<a href="${l.url}" target="_blank" rel="noopener">[${l.label}]</a>` + (i < a.length - 1 ? `<span> / </span>` : "")
                   ).join("");
                   return `<li><div class="pc">
-                    <div class="pt">${thumb}</div>
+                    ${preview}
                     <div class="pb">
-                      <div class="vr"><span class="vt">${p.venue}</span><span class="vd">·</span><span class="vy">${p.year}</span>${badge}</div>
+                      <div class="vr"><span class="vt">${p.venue}</span>${venueNote}<span class="vd">·</span><span class="vy">${p.year}</span>${badge}</div>
                       <p class="ti">${p.title}</p>
                       <p class="au">${authors}</p>
                       <div class="lk">${links}</div>
@@ -341,6 +387,40 @@
                   el.innerHTML = typeof PUBLICATIONS === "undefined"
                     ? `<li style="color:#c00; font-size:13px">Error: publications.js not loaded.</li>`
                     : PUBLICATIONS.map(renderCard).join("");
+
+                  const dialog = document.getElementById("publication-image-preview");
+                  const image = document.getElementById("publication-preview-image");
+                  const title = document.getElementById("publication-preview-title");
+                  let trigger = null;
+
+                  el.addEventListener("click", event => {
+                    const button = event.target.closest("button[data-publication-index]");
+                    if (!button) return;
+                    const publication = PUBLICATIONS[Number(button.dataset.publicationIndex)];
+                    trigger = button;
+                    title.textContent = publication.title;
+                    image.alt = publication.title;
+                    image.src = publication.image;
+                    document.body.classList.add("image-preview-open");
+                    dialog.showModal();
+                  });
+
+                  dialog.querySelector(".image-preview-close").addEventListener("click", () => dialog.close());
+                  let startedOnBackdrop = false;
+                  const isBackdrop = event => {
+                    const rect = dialog.getBoundingClientRect();
+                    return event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom);
+                  };
+                  dialog.addEventListener("pointerdown", event => { startedOnBackdrop = isBackdrop(event); });
+                  dialog.addEventListener("click", event => {
+                    if (startedOnBackdrop && isBackdrop(event)) dialog.close();
+                    startedOnBackdrop = false;
+                  });
+                  dialog.addEventListener("close", () => {
+                    document.body.classList.remove("image-preview-open");
+                    image.removeAttribute("src");
+                    if (trigger) trigger.focus({ preventScroll: true });
+                  });
                 });
               </script>
 
@@ -555,7 +635,7 @@
                           <div style="display:flex; align-items:baseline;">
                             <span style="flex:1; min-width:0;">
                               <strong>Conference Reviewer:</strong>
-                              NeurIPS, ICLR, EMNLP, IEEE FLEPS
+                              NeurIPS, ICLR, EMNLP, ICRA, IEEE FLEPS
                             </span>
                           </div>
                         </li>
@@ -564,8 +644,8 @@
                           <div style="display:flex; align-items:baseline;">
                             <span style="flex:1; min-width:0;">
                               <strong>Journal Reviewer:</strong>
-                              Expert Systems with Applications, IEEE Sensors Journal,
-                              IEEE Sensors Letters, Frontiers in Electronics
+                              Expert Systems with Applications; IEEE Transactions on Neural Systems and Rehabilitation Engineering;
+                              IEEE Sensors Journal; IEEE Sensors Letters; Frontiers in Electronics.
                             </span>
                           </div>
                         </li>
@@ -605,6 +685,16 @@
 
     </div>
   </main>
+
+  <dialog id="publication-image-preview" class="image-preview" aria-labelledby="publication-preview-title">
+    <div class="image-preview-header">
+      <h2 id="publication-preview-title" class="image-preview-title"></h2>
+      <button type="button" class="image-preview-close" aria-label="Close image preview" autofocus>Close</button>
+    </div>
+    <div class="image-preview-content">
+      <img id="publication-preview-image" alt="">
+    </div>
+  </dialog>
 
 </body>
 </html>
