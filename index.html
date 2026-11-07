@@ -97,6 +97,12 @@
     .links a        { color: #555; text-decoration: none; border-bottom: 1px solid #ddd; padding: 0 2px; margin: 0 4px; }
     .links a:hover  { color: #185FA5; border-color: #B5D4F4; }
 
+    /* News typography */
+    .news-list > li              { font-size: 14px; line-height: 1.6; }
+    .news-list .news-date        { font-size: 13px; }
+    .news-list .news-tag         { font-size: 12px; }
+    .news-list a                 { font-family: inherit; font-size: inherit; line-height: inherit; }
+
     /* Publication cards */
     #pub-list, #pub-list li     { list-style: none !important; padding-left: 0 !important; margin-left: 0 !important; }
     #pub-list li::before,
@@ -105,7 +111,9 @@
     .pc:first-child             { border-top: none; padding-top: 0; }
     .pt                         { width: 320px; min-width: 320px; height: 180px; border-radius: 7px; overflow: hidden; border: 1px solid #e4e4e4; background: #f5f5f5; flex-shrink: 0; }
     .pt img                     { width: 100%; height: 100%; object-fit: cover; }
-    .pt img.evoalloc-preview    { object-fit: contain; background: #fff; }
+    .pt img.evoalloc-preview,
+    .pt img.avatar-preview      { object-fit: contain; background: #fff; }
+    .pt img.oasis-preview,
     .pt img.babyrobot-preview,
     .pt img.starfish-preview    { display: block; box-sizing: border-box; padding: 10px; object-fit: contain; object-position: center; background: #fff; }
     /* Frame the upper PSS scene: 480 × 270 at (120, 14) in the 600 × 410 GIF. */
@@ -255,7 +263,7 @@
                     <a href="https://scholar.google.com/citations?user=YJr1mOgAAAAJ">Google Scholar</a> /
                     <a href="https://github.com/YanningDai">Github</a> /
                     <a href="https://www.linkedin.com/in/yanning-d-000882311/">LinkedIn</a> /
-                    <a href="files/CV.pdf?v=f033c497" target="_blank" rel="noopener noreferrer">CV</a>
+                    <a href="files/CV.pdf?v=0b0b0700" target="_blank" rel="noopener noreferrer">CV</a>
                   </p>
                 </div>
               </div>
@@ -267,59 +275,67 @@
                     <tr>
                       <td style="padding:20px; width:100%; vertical-align:middle;">
                         <heading id="news">News</heading>
-                        <ul style="list-style:none; padding:0; margin-top:12px;">
-                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee; font-size:14px; line-height:1.6;">
-                            <span style="color:#999; min-width:80px; font-size:13px; padding-top:2px;">Oct 2026</span>
+                        <ul class="news-list" style="list-style:none; padding:0; margin-top:12px;">
+                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee;">
+                            <span class="news-date" style="color:#999; min-width:80px; padding-top:2px;">Nov 2026</span>
                             <span style="color:#444;">
-                              <span style="background:#EEEDFE; color:#3C3489; font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">arXiv</span>
-                              Our preprint on efficient program evolution, <a href="https://arxiv.org/pdf/2610.12086" style="font-size:inherit; color:#185FA5; text-decoration:none; border-bottom:1px solid #B5D4F4;">EvoAlloc</a>, is now available on arXiv!
-                            </span>
-                          </li>
-                          
-                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee; font-size:14px; line-height:1.6;">
-                            <span style="color:#999; min-width:80px; font-size:13px; padding-top:2px;">Aug 2026</span>
-                            <span style="color:#444;">
-                              <span style="background:#EEEDFE; color:#3C3489; font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">EMNLP 2026</span>
-                              Our <a href="https://aclanthology.org/2026.findings-emnlp.2150.pdf" target="_blank" rel="noopener noreferrer" style="font-size:inherit; color:#185FA5; text-decoration:none; border-bottom:1px solid #B5D4F4;">paper</a> on self-improving agents has been accepted to Findings of EMNLP 2026!
+                              <span class="news-tag" style="background:#EEEDFE; color:#3C3489; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">Science Advances</span>
+                              Our <a href="https://arxiv.org/pdf/2512.14329" target="_blank" rel="noopener noreferrer" style="color:#185FA5; text-decoration:none; border-bottom:1px solid #B5D4F4;">paper</a> on a personalized agent for healthcare has been accepted to Science Advances!
                             </span>
                           </li>
 
-                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee; font-size:14px; line-height:1.6;">
-                            <span style="color:#999; min-width:80px; font-size:13px; padding-top:2px;">Jan 2026</span>
+                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee;">
+                            <span class="news-date" style="color:#999; min-width:80px; padding-top:2px;">Oct 2026</span>
                             <span style="color:#444;">
-                              <span style="background:#EEEDFE; color:#3C3489; font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">ICLR 2026</span>
+                              <span class="news-tag" style="background:#EEEDFE; color:#3C3489; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">arXiv</span>
+                              Our preprint on efficient program evolution, <a href="https://arxiv.org/pdf/2610.12086" style="color:#185FA5; text-decoration:none; border-bottom:1px solid #B5D4F4;">EvoAlloc</a>, is now available on arXiv!
+                            </span>
+                          </li>
+                          
+                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee;">
+                            <span class="news-date" style="color:#999; min-width:80px; padding-top:2px;">Aug 2026</span>
+                            <span style="color:#444;">
+                              <span class="news-tag" style="background:#EEEDFE; color:#3C3489; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">EMNLP 2026</span>
+                              Our <a href="https://aclanthology.org/2026.findings-emnlp.2150.pdf" target="_blank" rel="noopener noreferrer" style="color:#185FA5; text-decoration:none; border-bottom:1px solid #B5D4F4;">paper</a> on self-improving agents has been accepted to Findings of EMNLP 2026!
+                            </span>
+                          </li>
+
+                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee;">
+                            <span class="news-date" style="color:#999; min-width:80px; padding-top:2px;">Jan 2026</span>
+                            <span style="color:#444;">
+                              <span class="news-tag" style="background:#EEEDFE; color:#3C3489; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">ICLR 2026</span>
                               Our <a href="https://openreview.net/pdf?id=sJ0vOOkclw" style="color:#185FA5; text-decoration:none; border-bottom:1px solid #B5D4F4;">paper</a> on Morphology-Control Co-Design is accepted to ICLR 2026!
                             </span>
                           </li>
 
-                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee; font-size:14px; line-height:1.6;">
-                            <span style="color:#999; min-width:80px; font-size:13px; padding-top:2px;">Jun 2025</span>
+                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee;">
+                            <span class="news-date" style="color:#999; min-width:80px; padding-top:2px;">Jun 2025</span>
                             <span style="color:#444;">
-                              <span style="background:#EEEDFE; color:#3C3489; font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">IROS 2025</span>
+                              <span class="news-tag" style="background:#EEEDFE; color:#3C3489; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">IROS 2025</span>
                               Our <a href="https://ieeexplore.ieee.org/document/11246188" style="color:#185FA5; text-decoration:none; border-bottom:1px solid #B5D4F4;">paper</a> on Soft RL Robot Platform is accepted to IROS 2025!
                             </span>
                           </li>
 
-                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee; font-size:14px; line-height:1.6;">
-                            <span style="color:#999; min-width:80px; font-size:13px; padding-top:2px;">Sep 2024</span>
+                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee;">
+                            <span class="news-date" style="color:#999; min-width:80px; padding-top:2px;">Sep 2024</span>
                             <span style="color:#444;">
-                              <span style="background:#E6F1FB; color:#185FA5; font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">IROS 2024</span>
+                              <span class="news-tag" style="background:#E6F1FB; color:#185FA5; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">IROS 2024</span>
                               Our <a href="files/poster_iros2024.pdf" style="color:#185FA5; text-decoration:none; border-bottom:1px solid #B5D4F4;">poster</a> (Late-Breaking Results) on Soft Starfish Robot is accepted to IROS 2024!
                             </span>
                           </li>
 
-                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee; font-size:14px; line-height:1.6;">
-                            <span style="color:#999; min-width:80px; font-size:13px; padding-top:2px;">Jun 2024</span>
+                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee;">
+                            <span class="news-date" style="color:#999; min-width:80px; padding-top:2px;">Jun 2024</span>
                             <span style="color:#444;">
-                              <span style="background:#E1F5EE; color:#0F6E56; font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">PhD</span>
+                              <span class="news-tag" style="background:#E1F5EE; color:#0F6E56; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">PhD</span>
                               Start my PhD journey at KAUST with Prof. Jürgen Schmidhuber.
                             </span>
                           </li>
 
-                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee; font-size:14px; line-height:1.6;">
-                            <span style="color:#999; min-width:80px; font-size:13px; padding-top:2px;">Apr 2024</span>
+                          <li style="display:flex; gap:16px; padding:10px 0; border-bottom:0.5px solid #eee;">
+                            <span class="news-date" style="color:#999; min-width:80px; padding-top:2px;">Apr 2024</span>
                             <span style="color:#444;">
-                              <span style="background:#FAEEDA; color:#854F0B; font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">Award</span>
+                              <span class="news-tag" style="background:#FAEEDA; color:#854F0B; font-weight:600; padding:2px 8px; border-radius:10px; margin-right:6px;">Award</span>
                               Selected as Rising Stars in AI by KAUST AI Initiative!
                             </span>
                           </li>

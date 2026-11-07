@@ -25,6 +25,20 @@
 
 const PUBLICATIONS = [
   {
+    venue: "Science Advances",
+    year: "2026",
+    badge: null,
+    title: "Wearable-Informed Generative Digital Avatars Predict Task-Conditioned Post-Stroke Locomotion",
+    authors: "Yanning Dai, Chenyu Tang, Ruizhi Zhang, Wenyu Yang, Yilan Zhang, Yuhui Wang, Junliang Chen, Xuhang Chen, Ruimou Xie, Yangyue Cao, et al.",
+    abstract: "A generative avatar framework conditioned on wearable sensor data that predicts individualized post-stroke locomotion patterns across diverse rehabilitation tasks.",
+    image: "figures/pub_avatar_showcase.gif",
+    imageClass: "avatar-preview",
+    links: [
+      { label: "Paper",   url: "https://arxiv.org/pdf/2512.14329" },
+      { label: "Code", url: "https://github.com/YanningDai/StrokeAvatar" },
+    ]
+  },
+  {
     venue: "ICLR",
     year: "2026",
     badge: null,
@@ -55,19 +69,6 @@ const PUBLICATIONS = [
     venue: "arXiv",
     year: "2026",
     badge: null,
-    title: "Wearable-Informed Generative Digital Avatars Predict Task-Conditioned Post-Stroke Locomotion",
-    authors: "Yanning Dai, Chenyu Tang, Ruizhi Zhang, Wenyu Yang, Yilan Zhang, Yuhui Wang, Junliang Chen, Xuhang Chen, Ruimou Xie, Yangyue Cao, et al.",
-    abstract: "A generative avatar framework conditioned on wearable sensor data that predicts individualized post-stroke locomotion patterns across diverse rehabilitation tasks.",
-    image: "figures/pub_avatar.gif",
-    links: [
-      { label: "Paper",   url: "https://arxiv.org/pdf/2512.14329" },
-      { label: "Code", url: "https://github.com/YanningDai/StrokeAvatar" },
-    ]
-  },
-  {
-    venue: "arXiv",
-    year: "2026",
-    badge: null,
     title: "Predictive Semantic Safety: From Visual Physical Reasoning to Safety-Critical Control",
     authors: "Taekyung Kim*, Salem Fradi*, Yanning Dai, Mateusz Ostaszewski, Jürgen Schmidhuber",
     image: "figures/pub_pss.gif",
@@ -76,6 +77,18 @@ const PUBLICATIONS = [
       { label: "Paper",   url: "https://arxiv.org/pdf/2609.34356" },
       { label: "Project", url: "https://www.taekyung.me/pss" },
       { label: "Code",    url: "https://github.com/AlKeshi/predictive-semantic-safety" },
+    ]
+  },
+  {
+    venue: "EMNLP Findings",
+    year: "2026",
+    badge: null,
+    title: "OASIS: Online Anchor-calibrated Self-Improvement System",
+    authors: "Wenyi Wang, Firas Laakom, Li Nanbo, Yanning Dai, Yuhui Wang, Yifan Xu, Dmitrii Khizbullin, Piotr Piękos, Yilan Zhang, Yimeng Chen, Alfonso Amayuelas, Mingchen Zhuge, Jürgen Schmidhuber",
+    image: "figures/pub_oasis.png",
+    imageClass: "oasis-preview",
+    links: [
+      { label: "Paper", url: "https://aclanthology.org/2026.findings-emnlp.2150.pdf" },
     ]
   },
   {
